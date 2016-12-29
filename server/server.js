@@ -4,6 +4,7 @@ var http = require('http')
 var bodyParser = require('body-parser')
 var morgan = require('morgan')
 var mongoose = require('mongoose')
+var hikeRouter = require('./routes/app.js')
 
 // MongoDB
 
@@ -25,9 +26,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 // Routes
-app.use('/', function (request, response) {
-  response.send('Hello world!')
-})
+app.use('/', hikeRouter)
 
 app.use(function (error, request, response, next) {
   if (error) {
