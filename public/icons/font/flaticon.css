@@ -1,0 +1,48 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 03/12/2016 20:45
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-add:before { content: "\f100"; color: #484466; }
+.flaticon-calendar:before { content: "\f101"; color: #484466; }
+.flaticon-difficulty:before { content: "\f102"; color: #484466; }
+.flaticon-distance:before { content: "\f103"; color: #484466; }
+.flaticon-home:before { content: "\f104"; color: #484466; }
+.flaticon-number-four-in-circular-button:before { content: "\f105"; color: #484466; }
+.flaticon-number-one-in-a-circle:before { content: "\f106"; color: #484466; }
+.flaticon-number-three-in-a-circle:before { content: "\f107"; color: #484466; }
+.flaticon-number-two-in-a-circle:before { content: "\f108"; color: #484466; }
+.flaticon-photo-camera:before { content: "\f109"; color: #484466; }
+.flaticon-picture:before { content: "\f10a"; color: #484466; }
+.flaticon-picture-1:before { content: "\f10b"; color: #484466; }
+.flaticon-radius:before { content: "\f10c"; color: #484466; }
+.flaticon-remove:before { content: "\f10d"; color: #484466; }
+.flaticon-right-arrow:before { content: "\f10e"; color: #484466; }
+.flaticon-search:before { content: "\f10f"; color: #484466; }
+.flaticon-trash:before { content: "\f110"; color: #484466; }

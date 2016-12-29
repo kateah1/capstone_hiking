@@ -1,0 +1,53 @@
+{
+	"hikes": [{
+		"id": 0,
+		"image": "http://cdn.alltelluride.com/images/content/6092_7655_Telluride_Hiking_Trails_md.jpg",
+		"name": "Farmington River",
+		"location": "Canton"
+	}, {
+		"id": 1,
+		"image": "https://summitlodgevermont.com/wp-content/uploads/2011/10/hiking-trail.jpg",
+		"name": "Sweetheart Mountain",
+		"location": "Canton"
+	}, {
+		"id": 2,
+		"image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Preikestolen_hiking_trail.jpg",
+		"name": "Ratlum Mountain",
+		"location": "Canton"
+	}, {
+		"id": 3,
+		"image": "http://images.gearjunkie.com/uploads/2015/10/River-MN-North-Shore.jpg",
+		"name": "Bear Mountain",
+		"location": "Salisbury"
+	}, {
+		"id": 4,
+		"image": "http://umad.com/img/2016/3/hiking-trail-desktop-wallpaper-13166-13623-hd-wallpapers.jpg",
+		"name": "Talcott Mountain",
+		"location": "Simsbury"
+	}, {
+		"id": 5,
+		"image": "http://worldtrailblazer.com/wp-content/uploads/2015/10/Hiking-Trail.jpg",
+		"name": "Millington",
+		"location": "Farmington"
+	}, {
+		"id": 6,
+		"image": "http://wish2visit.com/wp-content/uploads/2016/01/l.jpg",
+		"name": "Sleeping Giant",
+		"location": "New Haven"
+	}, {
+		"id": 7,
+		"image": "http://photo.photokaz.com/wp-content/uploads/2012/08/2012-08-18-Lions-Binkert-Hike-9870-MKH.jpg",
+		"name": "Bluff Point State Park",
+		"location": "Milford"
+	}, {
+		"id": 8,
+		"image": "http://d1vmp8zzttzftq.cloudfront.net/wp-content/uploads/2012/11/Dickson-Falls-Hiking-Trail-At-Fundy-National-Park-of-Canada-New-Brunswick-Atlantic-Provinces-1600x1200.jpg",
+		"name": "Indian Council Caves",
+		"location": "Barkhamsted"
+	}, {
+		"id": 9,
+		"image": "https://inspiredimperfection.com/wp-content/uploads/2016/04/bear-gulch-cave-trail-pinnacles-national-park.jpg",
+		"name": "Castle Craig",
+		"location": "Southington"
+	}]
+}
