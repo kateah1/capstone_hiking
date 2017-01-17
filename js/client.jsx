@@ -24,10 +24,10 @@ class App extends React.Component {
         <Route path='/register_confirmation' component={RegConfirm} />
         <Route path='/home' component={Home} />
         <Route path='/search' component={Search} />
-        <Route path='/hikedetail' component={HikeDetail} />
-        <Route path='/myhikes' component={MyHikes} />
-        <Route path='/reviews' component={Reviews} />
-        <Route path='/review_form' component={ReviewForm} />
+        <Route path='/:id/hikedetail' component={HikeDetail} />
+        <Route path='/user/myhikes' component={MyHikes} />
+        <Route path='/:id/reviews' component={Reviews} />
+        <Route path='/:id/review_form' component={ReviewForm} />
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />
       </Router>

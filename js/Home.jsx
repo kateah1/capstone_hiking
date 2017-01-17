@@ -25,7 +25,7 @@ class Home extends React.Component {
           <div className='column'>
             <h1 className='ui huge header'>Welcome to HIKER</h1>
             <div className='ui input'>
-              <input value={this.state.value} required type='text' placeholder='enter zip code, city or state' />
+              <input id='search-box' value={this.state.value} required type='text' placeholder='enter name of park, city or state' />
               <Link to='/search'><icon onClick={this.handleChange} className='flaticon-search' /></Link>
             </div>
           </div>

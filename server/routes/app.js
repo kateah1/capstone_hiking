@@ -5,6 +5,27 @@ var users = []
 var myHikes = []
 var reviews = []
 
+hikeRouter.param('user', function (request, response, next, user) {
+  var username = _.find(users, {user: user})
+
+  if (username) {
+    request.username = username
+    next()
+  } else {
+    response.send()
+  }
+})
+
+hikeRouter.route('/login')
+  .post(function (request, response) {
+    var user = {
+      username: request.body.username,
+      password: request.body.password
+    }
+
+    response.status(201).json(user)
+  })
+
 hikeRouter.route('/register')
   .post(function (request, response) {
     var user = {
@@ -17,28 +38,25 @@ hikeRouter.route('/register')
 
     users.push(user)
 
-    response.status(201)
-  })
-
-hikeRouter.route('/home')
-  .get(function (request, response) {
-    response.status(200).json(request.hike)
+    response.status(201).json(users)
   })
 
 hikeRouter.route('/search')
   .get(function (request, response) {
+    response.status(200).json(request)
+  })
+
+/** GET RID OF HIKE DETAIL??? **/
+hikeRouter.route('/:id/hikedetail')
+  .get(function (request, response) {
     response.status(200).json(request.hike)
   })
 
-hikeRouter.route('/hikedetail/:id')
-  .get(function (request, response) {
-    response.status(200).json(request.hikeDetail)
-  })
-
-hikeRouter.route('/myhikes')
+hikeRouter.route('/me/myhikes')
   .get(function (request, response) {
     response.status(200).json(myHikes)
   })
+  /** GET MY HIKES TO BE PERMANENTLY ADDED TO SPECIFIC USER LIST OF HIKES **/
   .post(function (request, response) {
     var hike = {
       id: request.body.id,
@@ -58,12 +76,17 @@ hikeRouter.route('/myhikes')
     response.status(200).json(myHikes)
   })
 
-hikeRouter.route('/reviews')
+hikeRouter.route('/:user/hikes')
   .get(function (request, response) {
-    response.status(200).json(request.review)
+    response.status(200).json(myHikes)
   })
 
-hikeRouter.route('review_form')
+hikeRouter.route('/:id/reviews')
+  .get(function (request, response) {
+    response.status(200).json(request)
+  })
+
+hikeRouter.route('/:id/review_form')
   .post(function (request, response) {
     var review = {
       dateHiked: request.body.dateHiked,
