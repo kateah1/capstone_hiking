@@ -15,10 +15,12 @@ class Hike extends React.Component {
     fetch('https://trailapi-trailapi.p.mashape.com/', {
       headers: {'X-Mashape-Authorization': 'QYyfJ0AJ55mshNE7Z8fXe8CIU4pQp1bT9bMjsnaTW8xTgmib0u'}
     }).then((response) => {
+      console.log(response.json())
+      return response.json()
+    }).then((response) => {
       this.setState({
         hikes: response
       })
-      console.log('first', response)
     }).catch((err) => {
       console.log(err)
     })
@@ -27,7 +29,7 @@ class Hike extends React.Component {
   render () {
     const data = this.state.hikes.places
     console.log('hello', this.state)
-    const places = data.map(function (hike) {
+    const places = data.map((hike) => {
       <div className='ui middle aligned center aligned grid cards'>
         <div className='card' key={hike.unique_id}>
           <div className='ui fluid image'>
