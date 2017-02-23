@@ -4,17 +4,23 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "express-session": "^1.15.0",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.2",
     "mocha": "^3.2.0",
     "mongoose": "^4.7.3",
     "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-fetch": "0.0.9",
     "react-router": "^3.0.1",
+    "sass": "^0.5.0",
+    "unirest": "^0.5.1",
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {

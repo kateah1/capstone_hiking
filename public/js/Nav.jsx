@@ -6,8 +6,8 @@ class Nav extends React.Component {
     return (
       <div className='ui fixed inverted huge right menu'>
         <div className='ui container'>
-          <Link to='/home' className='item'><img src='public/images/logo.png' /></Link>
-          <Link to='/myhikes' className='item'>My Hikes</Link>
+          <Link to='/home' className='item'>Home</Link>
+          <Link to='/user/myhikes' className='item'>My Hikes</Link>
           <Link to='/about' className='item'>About</Link>
           <Link to='/contact' className='item'>Contact</Link>
         </div>

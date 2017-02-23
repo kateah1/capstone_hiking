@@ -1,7 +1,7 @@
 const React = require('react')
 const Nav = require('./Nav.jsx')
 const { Link } = require('react-router')
-const reviewsData = require('json-loader!../public/data/reviews.json')
+const reviewsData = require('json-loader!../data/reviews.json')
 
 class Reviews extends React.Component {
   render () {

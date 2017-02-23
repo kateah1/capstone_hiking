@@ -9,6 +9,12 @@ class ReviewForm extends React.Component {
         <div className='ui hidden section divider' />
         <div className='ui hidden section divider' />
         <div className='ui container'>
+          <div className='ui middle aligned center aligned grid'>
+            <div className='ui small image'>
+              <img src='public/images/logo.png' />
+            </div>
+          </div>
+          <div className='ui hidden section divider' />
           <h1 className='ui header'>Review NAME OF HIKE</h1>
           <form className='ui form'>
             <div className='fields'>

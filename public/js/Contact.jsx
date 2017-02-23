@@ -9,7 +9,12 @@ class Contact extends React.Component {
         <div className='ui hidden section divider' />
         <div className='ui hidden section divider' />
         <div className='ui container'>
-          <h1 className='ui header'>Welcome to HIKER</h1>
+          <div className='ui middle aligned center aligned grid'>
+            <div className='ui small image'>
+              <img src='../images/logo.png' />
+            </div>
+          </div>
+          <div className='ui hidden section divider' />
           <div className='ui raised very padded text container segment'>
             <form className='ui large form'>
               <h2 className='ui header'>Contact</h2>

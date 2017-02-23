@@ -6,7 +6,6 @@ const Register = require('./Register.jsx')
 const RegConfirm = require('./RegConfirm.jsx')
 const Home = require('./Home.jsx')
 const Search = require('./Search.jsx')
-const HikeDetail = require('./HikeDetail.jsx')
 const MyHikes = require('./MyHikes.jsx')
 const Reviews = require('./Reviews.jsx')
 const ReviewForm = require('./ReviewForm.jsx')
@@ -24,7 +23,6 @@ class App extends React.Component {
         <Route path='/register_confirmation' component={RegConfirm} />
         <Route path='/home' component={Home} />
         <Route path='/search' component={Search} />
-        <Route path='/:id/hikedetail' component={HikeDetail} />
         <Route path='/user/myhikes' component={MyHikes} />
         <Route path='/:id/reviews' component={Reviews} />
         <Route path='/:id/review_form' component={ReviewForm} />

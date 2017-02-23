@@ -15,12 +15,6 @@ class Register extends React.Component {
             <form className='ui large form'>
               <div className='ui raised segment'>
                 <div className='field'>
-                  <input type='text' required placeholder='first name' />
-                </div>
-                <div className='field'>
-                  <input type='text' placeholder='last name' />
-                </div>
-                <div className='field'>
                   <input type='text' required placeholder='username' />
                 </div>
                 <div className='field'>

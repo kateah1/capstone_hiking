@@ -2,7 +2,7 @@ var path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: ['whatwg-fetch', './js/client.jsx'],
+  entry: ['whatwg-fetch', './public/js/client.jsx'],
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'

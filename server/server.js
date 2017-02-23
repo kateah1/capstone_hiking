@@ -1,48 +1,38 @@
+'use strict'
+
 // Dependencies
-var express = require('express')
-var http = require('http')
-var bodyParser = require('body-parser')
-var morgan = require('morgan')
-var mongoose = require('mongoose')
-var hikeRouter = require('./routes/app.js')
+const express = require('express')
+const http = require('http')
+const mongoose = require('mongoose')
+const path = require('path')
+
+// Express
+let app = express()
+let server = http.Server(app)
+
+app.use(express.static('public'))
+
+// Require Middleware
+require('./config/middleware.config.js')(app)
+
+app.use('/auth', require('./auth/auth.router.js'))
+app.use('/api/user', require('./user/user.router.js'))
+app.use('/api/hike', require('./hike/hike.router.js'))
+
+app.get('*', (request, response) => {
+  response.status(200).sendFile(path.join(__dirname, '/public/index.html'))
+})
 
 // MongoDB
-
 mongoose.connect('mongodb://localhost/capstone_hiking')
 
-var db = mongoose.connection
+const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function () {
   console.log('Connected!')
 })
 
-// Express
-var app = express()
-var server = http.Server(app)
-
-app.use(morgan('dev'))
-app.use(express.static('public'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
-
-// Routes
-app.use('/', hikeRouter)
-
-app.use(function (error, request, response, next) {
-  if (error) {
-    console.log(error.message)
-    response.status(500).send(error)
-  }
-})
-
-app.use('*', function (request, response) {
-  response.status(404).json({
-    message: 'Not Found'
-  })
-})
-
 // Start Server
-
 server.listen(process.env.PORT || 8080)
 console.log('On port 8080')
 

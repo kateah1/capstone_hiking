@@ -2,6 +2,27 @@ const React = require('react')
 const Nav = require('./Nav.jsx')
 
 class RegConfirm extends React.Component {
+
+  componentWillMount (request) {
+    let user = {
+      name: request.body.name,
+      email: request.body.email,
+      password: request.body.password
+    }
+
+    fetch({
+      url: '/auth/register',
+      type: 'POST',
+      data: user
+    }).done(function (user) {
+      fetch('/api/users/me').done(function (me) {
+        console.log(me)
+      })
+    }).fail(function (error) {
+      console.log(error)
+    })
+  }
+
   render () {
     return (
       <div>

@@ -7,6 +7,7 @@ class Search extends React.Component {
     return (
       <div>
         <Home />
+        <div className='ui hidden section divider' />
         <div className='search-results'>
           <Hike />
         </div>
