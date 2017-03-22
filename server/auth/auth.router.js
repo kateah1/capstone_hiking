@@ -1,12 +1,14 @@
-'use strict'
-
 const passport = require('passport')
 const router = require('express').Router()
-let controller = require('./auth.controller.js')
+let controller = require('./auth.controller')
 
 router.route('/login')
   .post(passport.authenticate('local'), (request, response) => {
-    response.status(200).json(request.user)
+    if (request.user) {
+      response.status(200).json(request.user)
+    } else {
+      response.status(500).json('Incorrect username or password')
+    }
   })
 
 router.route('/register')

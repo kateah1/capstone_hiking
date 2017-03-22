@@ -1,10 +1,8 @@
-'use strict'
-
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const schema = mongoose.Schema
 
-let hikeSchema = new Schema({
-  _hiker: Schema.Types.ObjectId,
+let hikeSchema = new schema({
+  _hiker: schema.Types.ObjectId,
   hikes: [Number]
 })
 

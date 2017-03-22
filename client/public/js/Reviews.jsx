@@ -1,6 +1,6 @@
 const React = require('react')
 const Nav = require('./Nav.jsx')
-const { Link } = require('react-router')
+const { Link } = require('react-router-dom')
 const reviewsData = require('json-loader!../data/reviews.json')
 
 class Reviews extends React.Component {

@@ -1,39 +1,46 @@
-'use strict'
-
-// Dependencies
+// dependencies
 const express = require('express')
-const http = require('http')
 const mongoose = require('mongoose')
 const path = require('path')
 
-// Express
+// express
 let app = express()
-let server = http.Server(app)
 
 app.use(express.static('public'))
 
-// Require Middleware
-require('./config/middleware.config.js')(app)
+// mongodb
+mongoose.Promise = require('bluebird')
 
-app.use('/auth', require('./auth/auth.router.js'))
-app.use('/api/user', require('./user/user.router.js'))
-app.use('/api/hike', require('./hike/hike.router.js'))
-
-app.get('*', (request, response) => {
-  response.status(200).sendFile(path.join(__dirname, '/public/index.html'))
-})
-
-// MongoDB
 mongoose.connect('mongodb://localhost/capstone_hiking')
 
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function () {
-  console.log('Connected!')
+  console.log('MongoDB connected!')
 })
 
-// Start Server
-server.listen(process.env.PORT || 8080)
-console.log('On port 8080')
+// require middleware
+require('./config/middleware.config')(app)
 
-module.exports = server
+app.use('/auth', require('./auth/auth.router'))
+app.use('/api/users', require('./api/user/user.router'))
+app.use('/api/hikes', require('./api/hike/hike.router'))
+
+app.get('*', (request, response) => {
+  response.status(200).sendFile(path.join(__dirname, '../client/public/index.html'))
+})
+
+// Error Handling
+app.use(function (error, request, response, next) {
+  if (error) {
+    console.log(error.message)
+    response.status(500).send(error)
+  }
+})
+
+// start server
+app.listen(5000, () => {
+  console.log('Express server connected!')
+})
+
+// module.exports = app

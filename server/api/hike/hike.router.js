@@ -1,8 +1,6 @@
-'use strict'
-
 const router = require('express').Router()
-let controller = require('./hike.controller.js')
-let authUtils = require('../auth/auth.utils.js')
+let controller = require('./hike.controller')
+let authUtils = require('../../auth/auth.utils')
 
 router.route('/uid=:id')
   .get(authUtils.isLoggedIn, controller.findHikeById)

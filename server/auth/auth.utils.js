@@ -1,11 +1,8 @@
-'use strict'
-
 exports.isLoggedIn = (request, response, next) => {
   if (!request.user) {
-    return response.status(400).json({
-      message: 'You do not have access'
+    return response.status(401).json({
+      message: 'Unauthorized'
     })
   }
-
   next()
 }

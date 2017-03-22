@@ -1,7 +1,6 @@
-'use strict'
-
+const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../user/user.model.js')
+const User = require('../api/user/user.model')
 
 module.exports = new LocalStrategy({
   usernameField: 'email',

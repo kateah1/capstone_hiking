@@ -1,9 +1,7 @@
-'use strict'
-
-let Hike = require('./hike.model.js')
-let Review = require('./review.model.js')
+let Hike = require('./hike.model')
+let Review = require('./review.model')
 let unirest = require('unirest')
-let config = require('../config/middleware.config.js')
+let config = require('../../config')
 let controller = {}
 
 function filteredHikes (results) {
@@ -31,8 +29,6 @@ controller.reviewsByUser = function (request, response, next) {
 controller.savedHikes = function (request, response, next) {
   Hike.find({
     _hiker: request.user.id
-  }, {$addToSet: {hikes: parseInt(request.params.id)}
-  }, {upsert: true
   }).then(function (success) {
     response.status(200).json(success)
   }).catch(function (error) {
@@ -43,6 +39,12 @@ controller.savedHikes = function (request, response, next) {
 controller.saveHike = function (request, response, next) {
   Hike.update({
     _hiker: request.user.id
+  }, {
+    $addToSet: {
+      hikes: parseInt(request.params.id)
+    }
+  }, {
+    upsert: true
   }).then(function (success) {
     response.status(201).json(success)
   }).catch(function (error) {
@@ -87,7 +89,7 @@ controller.findHikesByStateAndCity = function (request, response, next) {
     .header('X-Mashape-Key', config.trailapi.key)
     .header('Accept', 'text/plain')
     .end(function (result) {
-      response.status(200).json(result)
+      response.status(200).json(filteredHikes(result))
     })
 }
 
@@ -95,7 +97,13 @@ controller.addReviewToHike = function (request, response, next) {
   Review.create({
     _hiker: request.user.id,
     hike: request.body.hike_id,
-    review: request.body.review
+    dateHiked: request.body.dateHiked,
+    hikingTimeHours: request.body.hikingTimeHours,
+    hikingTimeMinutes: request.body.hikingTimeMinutes,
+    trailhead: request.body.trailhead,
+    trailConditions: request.body.trailConditions,
+    weather: request.body.weather,
+    gearUsed: request.body.gearUsed
   }).then(function (review) {
     response.status(201).json(review)
   }).catch(function (error) {

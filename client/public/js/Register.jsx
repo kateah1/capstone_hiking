@@ -1,6 +1,6 @@
 const React = require('react')
 const Nav = require('./Nav.jsx')
-const { Link } = require('react-router')
+const { Link } = require('react-router-dom')
 
 class Register extends React.Component {
   render () {
