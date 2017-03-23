@@ -2,7 +2,6 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const { BrowserRouter, Route } = require('react-router-dom')
 const Landing = require('./Landing.jsx')
-const Login = require('./Login.jsx')
 const Register = require('./Register.jsx')
 const RegConfirm = require('./RegConfirm.jsx')
 const Home = require('./Home.jsx')
@@ -19,7 +18,6 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <Route path='/' component={Landing} />
-          <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Route path='/register_confirmation' component={RegConfirm} />
           <Route path='/home' component={Home} />

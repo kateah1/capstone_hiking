@@ -537,16 +537,15 @@
 	    Route = _require.Route;
 
 	var Landing = __webpack_require__(217);
-	var Login = __webpack_require__(219);
-	var Register = __webpack_require__(220);
-	var RegConfirm = __webpack_require__(221);
-	var Home = __webpack_require__(222);
-	var Search = __webpack_require__(223);
-	var MyHikes = __webpack_require__(225);
-	var Reviews = __webpack_require__(226);
-	var ReviewForm = __webpack_require__(228);
-	var About = __webpack_require__(229);
-	var Contact = __webpack_require__(230);
+	var Register = __webpack_require__(219);
+	var RegConfirm = __webpack_require__(220);
+	var Home = __webpack_require__(221);
+	var Search = __webpack_require__(222);
+	var MyHikes = __webpack_require__(224);
+	var Reviews = __webpack_require__(225);
+	var ReviewForm = __webpack_require__(227);
+	var About = __webpack_require__(228);
+	var Contact = __webpack_require__(229);
 
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -567,7 +566,6 @@
 	          'div',
 	          null,
 	          React.createElement(Route, { path: '/', component: Landing }),
-	          React.createElement(Route, { path: '/login', component: Login }),
 	          React.createElement(Route, { path: '/register', component: Register }),
 	          React.createElement(Route, { path: '/register_confirmation', component: RegConfirm }),
 	          React.createElement(Route, { path: '/home', component: Home }),
@@ -25282,6 +25280,8 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	__webpack_require__(1);
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -25297,13 +25297,45 @@
 	var Landing = function (_React$Component) {
 	  _inherits(Landing, _React$Component);
 
-	  function Landing() {
+	  function Landing(props) {
 	    _classCallCheck(this, Landing);
 
-	    return _possibleConstructorReturn(this, (Landing.__proto__ || Object.getPrototypeOf(Landing)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Landing.__proto__ || Object.getPrototypeOf(Landing)).call(this, props));
+
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+
+	    _this.login = _this.login.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(Landing, [{
+	    key: 'login',
+	    value: function login(email, password) {
+	      fetch('/auth/login', {
+	        method: 'POST',
+	        headers: {
+	          'Content-Type': 'application/json'
+	        },
+	        body: JSON.stringify({ email: email, password: password })
+	      }).then(function (response) {
+	        return response.json();
+	      }).then(function (user) {
+	        console.log(user);
+	      }).catch(function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(event) {
+	      event.preventDefault();
+	      var target = event.target;
+	      var email = target.email.value;
+	      var password = target.password.value;
+	      this.login(email, password);
+	      console.log('Form Submitted!');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return React.createElement(
@@ -25325,31 +25357,43 @@
 	            ),
 	            React.createElement(
 	              'form',
-	              { className: 'ui large form' },
+	              { className: 'ui large form', onSubmit: this.handleSubmit },
 	              React.createElement(
 	                'div',
 	                { className: 'ui raised segment' },
 	                React.createElement(
-	                  Link,
-	                  { to: '/login' },
-	                  React.createElement(
-	                    'div',
-	                    { className: 'ui fluid large submit button' },
-	                    'login'
-	                  )
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement('input', { type: 'text', placeholder: 'email', name: 'email' })
+	                ),
+	                React.createElement(
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement('input', { type: 'password', placeholder: 'password', name: 'password' })
+	                ),
+	                React.createElement(
+	                  'button',
+	                  { className: 'ui fluid large submit button' },
+	                  'Login'
 	                )
+	              )
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'ui message' },
+	              React.createElement(
+	                'p',
+	                null,
+	                'Forgot your password? Reset here'
 	              ),
 	              React.createElement(
-	                'div',
-	                { className: 'ui raised segment' },
+	                'p',
+	                null,
+	                'Don\'t have an account? Register',
 	                React.createElement(
 	                  Link,
 	                  { to: '/register' },
-	                  React.createElement(
-	                    'div',
-	                    { className: 'ui fluid large submit button' },
-	                    'register'
-	                  )
+	                  'here'
 	                )
 	              )
 	            )
@@ -25439,154 +25483,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
-
-	var _require = __webpack_require__(180),
-	    Link = _require.Link;
-
-	var Login = function (_React$Component) {
-	  _inherits(Login, _React$Component);
-
-	  function Login() {
-	    _classCallCheck(this, Login);
-
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
-	  }
-
-	  _createClass(Login, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount(request) {
-	      var user = {
-	        email: request.body.email,
-	        password: request.body.password
-	      };
-
-	      fetch({
-	        url: '/auth/login',
-	        type: 'POST',
-	        data: user
-	      }).done(function (user) {
-	        fetch('/api/users/me').done(function (me) {
-	          var _iteratorNormalCompletion = true;
-	          var _didIteratorError = false;
-	          var _iteratorError = undefined;
-
-	          try {
-	            for (var _iterator = me.hikes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	              var hike = _step.value;
-
-	              console.log(hike);
-	            }
-	          } catch (err) {
-	            _didIteratorError = true;
-	            _iteratorError = err;
-	          } finally {
-	            try {
-	              if (!_iteratorNormalCompletion && _iterator.return) {
-	                _iterator.return();
-	              }
-	            } finally {
-	              if (_didIteratorError) {
-	                throw _iteratorError;
-	              }
-	            }
-	          }
-	        });
-	      }).fail(function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement(
-	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
-	          React.createElement(
-	            'div',
-	            null,
-	            React.createElement(
-	              'h2',
-	              { className: 'ui header' },
-	              'Login'
-	            ),
-	            React.createElement(
-	              'form',
-	              { className: 'ui large form' },
-	              React.createElement(
-	                'div',
-	                { className: 'ui raised segment' },
-	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'text', placeholder: 'email' })
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'password', placeholder: 'password' })
-	                ),
-	                React.createElement(
-	                  Link,
-	                  { to: '/home' },
-	                  React.createElement(
-	                    'div',
-	                    { className: 'ui fluid large submit button' },
-	                    'Login'
-	                  )
-	                )
-	              )
-	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'ui message' },
-	              React.createElement(
-	                'p',
-	                null,
-	                'Forgot your password? Reset here'
-	              ),
-	              React.createElement(
-	                'p',
-	                null,
-	                'Don\'t have an account? Register ',
-	                React.createElement(
-	                  Link,
-	                  { to: '/register' },
-	                  'here'
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Login;
-	}(React.Component);
-
-	module.exports = Login;
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	__webpack_require__(1);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25603,13 +25500,46 @@
 	var Register = function (_React$Component) {
 	  _inherits(Register, _React$Component);
 
-	  function Register() {
+	  function Register(props) {
 	    _classCallCheck(this, Register);
 
-	    return _possibleConstructorReturn(this, (Register.__proto__ || Object.getPrototypeOf(Register)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Register.__proto__ || Object.getPrototypeOf(Register)).call(this, props));
+
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+
+	    _this.register = _this.register.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(Register, [{
+	    key: 'register',
+	    value: function register(name, email, password) {
+	      fetch('/auth/register', {
+	        method: 'POST',
+	        headers: {
+	          'Content-Type': 'application/json'
+	        },
+	        body: JSON.stringify({ name: name, email: email, password: password })
+	      }).then(function (response) {
+	        return response.json();
+	      }).then(function (user) {
+	        console.log(user);
+	      }).catch(function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(event) {
+	      event.preventDefault();
+	      var target = event.target;
+	      var name = target.name.value;
+	      var email = target.email.value;
+	      var password = target.password.value;
+	      this.register(name, email, password);
+	      console.log('Form Submitted!');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return React.createElement(
@@ -25631,38 +25561,29 @@
 	            ),
 	            React.createElement(
 	              'form',
-	              { className: 'ui large form' },
+	              { className: 'ui large form', onSubmit: this.handleSubmit },
 	              React.createElement(
 	                'div',
 	                { className: 'ui raised segment' },
 	                React.createElement(
 	                  'div',
 	                  { className: 'field' },
-	                  React.createElement('input', { type: 'text', required: true, placeholder: 'username' })
+	                  React.createElement('input', { type: 'text', required: true, placeholder: 'username', name: 'name' })
 	                ),
 	                React.createElement(
 	                  'div',
 	                  { className: 'field' },
-	                  React.createElement('input', { type: 'email', required: true, placeholder: 'email' })
+	                  React.createElement('input', { type: 'email', required: true, placeholder: 'email', name: 'email' })
 	                ),
 	                React.createElement(
 	                  'div',
 	                  { className: 'field' },
-	                  React.createElement('input', { type: 'password', required: true, placeholder: 'password' })
+	                  React.createElement('input', { type: 'password', required: true, placeholder: 'password', name: 'password' })
 	                ),
 	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'password', required: true, placeholder: 'confirm password' })
-	                ),
-	                React.createElement(
-	                  Link,
-	                  { to: '/register_confirmation' },
-	                  React.createElement(
-	                    'div',
-	                    { className: 'ui fluid large submit button' },
-	                    'Register'
-	                  )
+	                  'button',
+	                  { className: 'ui fluid large submit button' },
+	                  'Register'
 	                )
 	              )
 	            ),
@@ -25692,7 +25613,7 @@
 	module.exports = Register;
 
 /***/ },
-/* 221 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25785,7 +25706,7 @@
 	module.exports = RegConfirm;
 
 /***/ },
-/* 222 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25911,7 +25832,7 @@
 	module.exports = Home;
 
 /***/ },
-/* 223 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25925,8 +25846,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Home = __webpack_require__(222);
-	var Hike = __webpack_require__(224);
+	var Home = __webpack_require__(221);
+	var Hike = __webpack_require__(223);
 
 	var Search = function (_React$Component) {
 	  _inherits(Search, _React$Component);
@@ -25960,7 +25881,7 @@
 	module.exports = Search;
 
 /***/ },
-/* 224 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26114,7 +26035,7 @@
 	module.exports = Hike;
 
 /***/ },
-/* 225 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26129,7 +26050,7 @@
 
 	var React = __webpack_require__(3);
 	var Nav = __webpack_require__(218);
-	var Hike = __webpack_require__(224);
+	var Hike = __webpack_require__(223);
 
 	var MyHikes = function (_React$Component) {
 	  _inherits(MyHikes, _React$Component);
@@ -26174,7 +26095,7 @@
 	module.exports = MyHikes;
 
 /***/ },
-/* 226 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26193,7 +26114,7 @@
 	var _require = __webpack_require__(180),
 	    Link = _require.Link;
 
-	var reviewsData = __webpack_require__(227);
+	var reviewsData = __webpack_require__(226);
 
 	var Reviews = function (_React$Component) {
 	  _inherits(Reviews, _React$Component);
@@ -26380,7 +26301,7 @@
 	module.exports = Reviews;
 
 /***/ },
-/* 227 */
+/* 226 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -26444,7 +26365,7 @@
 	};
 
 /***/ },
-/* 228 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26616,7 +26537,7 @@
 	module.exports = ReviewForm;
 
 /***/ },
-/* 229 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26823,7 +26744,7 @@
 	module.exports = About;
 
 /***/ },
-/* 230 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
