@@ -541,11 +541,12 @@
 	var RegConfirm = __webpack_require__(220);
 	var Home = __webpack_require__(221);
 	var Search = __webpack_require__(222);
-	var MyHikes = __webpack_require__(224);
+	var MyHikes = __webpack_require__(223);
 	var Reviews = __webpack_require__(225);
 	var ReviewForm = __webpack_require__(227);
 	var About = __webpack_require__(228);
 	var Contact = __webpack_require__(229);
+	var Nav = __webpack_require__(230);
 
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -565,7 +566,8 @@
 	        React.createElement(
 	          'div',
 	          null,
-	          React.createElement(Route, { path: '/', component: Landing }),
+	          React.createElement(Route, { path: '/', component: Nav }),
+	          React.createElement(Route, { path: '/landing', component: Landing }),
 	          React.createElement(Route, { path: '/register', component: Register }),
 	          React.createElement(Route, { path: '/register_confirmation', component: RegConfirm }),
 	          React.createElement(Route, { path: '/home', component: Home }),
@@ -25289,7 +25291,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
+	var Footer = __webpack_require__(218);
 
 	var _require = __webpack_require__(180),
 	    Link = _require.Link;
@@ -25340,65 +25342,69 @@
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
 	            'div',
-	            null,
-	            React.createElement(
-	              'h1',
-	              { className: 'ui huge header' },
-	              'Welcome to HIKER'
-	            ),
-	            React.createElement(
-	              'form',
-	              { className: 'ui large form', onSubmit: this.handleSubmit },
-	              React.createElement(
-	                'div',
-	                { className: 'ui raised segment' },
-	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'text', placeholder: 'email', name: 'email' })
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'password', placeholder: 'password', name: 'password' })
-	                ),
-	                React.createElement(
-	                  'button',
-	                  { className: 'ui fluid large submit button' },
-	                  'Login'
-	                )
-	              )
-	            ),
+	            { className: 'ui middle aligned center aligned grid' },
 	            React.createElement(
 	              'div',
-	              { className: 'ui message' },
+	              null,
 	              React.createElement(
-	                'p',
-	                null,
-	                'Forgot your password? Reset here'
+	                'h1',
+	                { className: 'ui huge header' },
+	                'Welcome to HIKER'
 	              ),
 	              React.createElement(
-	                'p',
-	                null,
-	                'Don\'t have an account? Register',
+	                'form',
+	                { className: 'ui large form', onSubmit: this.handleSubmit },
 	                React.createElement(
-	                  Link,
-	                  { to: '/register' },
-	                  'here'
+	                  'div',
+	                  { className: 'ui raised segment' },
+	                  React.createElement(
+	                    'div',
+	                    { className: 'field' },
+	                    React.createElement('input', { type: 'text', placeholder: 'email', name: 'email' })
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'field' },
+	                    React.createElement('input', { type: 'password', placeholder: 'password', name: 'password' })
+	                  ),
+	                  React.createElement(
+	                    'button',
+	                    { className: 'ui fluid large submit button' },
+	                    'Login'
+	                  )
+	                )
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'ui message' },
+	                React.createElement(
+	                  'p',
+	                  null,
+	                  'Forgot your password? Reset here'
+	                ),
+	                React.createElement(
+	                  'p',
+	                  null,
+	                  'Don\'t have an account? Register',
+	                  React.createElement(
+	                    Link,
+	                    { to: '/register' },
+	                    'here'
+	                  )
 	                )
 	              )
 	            )
 	          )
-	        )
+	        ),
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -25427,53 +25433,98 @@
 	var _require = __webpack_require__(180),
 	    Link = _require.Link;
 
-	var Nav = function (_React$Component) {
-	  _inherits(Nav, _React$Component);
+	var Footer = function (_React$Component) {
+	  _inherits(Footer, _React$Component);
 
-	  function Nav() {
-	    _classCallCheck(this, Nav);
+	  function Footer() {
+	    _classCallCheck(this, Footer);
 
-	    return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
 	  }
 
-	  _createClass(Nav, [{
+	  _createClass(Footer, [{
 	    key: 'render',
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        { className: 'ui fixed inverted huge right menu' },
+	        { className: 'ui footer inverted segment' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui container' },
+	          { className: 'ui center aligned container' },
 	          React.createElement(
-	            Link,
-	            { to: '/home', className: 'item' },
-	            'Home'
-	          ),
-	          React.createElement(
-	            Link,
-	            { to: '/user/myhikes', className: 'item' },
-	            'My Hikes'
-	          ),
-	          React.createElement(
-	            Link,
-	            { to: '/about', className: 'item' },
-	            'About'
-	          ),
-	          React.createElement(
-	            Link,
-	            { to: '/contact', className: 'item' },
-	            'Contact'
+	            'div',
+	            { className: 'ui stackable grid' },
+	            React.createElement(
+	              'div',
+	              { className: 'three wide column' },
+	              React.createElement(
+	                'div',
+	                { className: 'ui tiny image' },
+	                React.createElement('img', { src: '../images/logo.png' })
+	              )
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'three wide column left aligned' },
+	              React.createElement(
+	                'div',
+	                { className: 'ui list' },
+	                React.createElement(
+	                  Link,
+	                  { to: '/home', className: 'item' },
+	                  'Home'
+	                ),
+	                React.createElement(
+	                  Link,
+	                  { to: '/user/myhikes', className: 'item' },
+	                  'My Hikes'
+	                ),
+	                React.createElement(
+	                  Link,
+	                  { to: '/about', className: 'item' },
+	                  'About'
+	                ),
+	                React.createElement(
+	                  Link,
+	                  { to: '/contact', className: 'item' },
+	                  'Contact'
+	                )
+	              )
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'ten wide column right aligned' },
+	              React.createElement(
+	                'a',
+	                { target: '_blank', href: 'https://www.facebook.com/kate.hurd.5' },
+	                React.createElement('i', { className: 'big facebook square icon' })
+	              ),
+	              React.createElement(
+	                'a',
+	                { target: '_blank', href: 'https://github.com/kateah1' },
+	                React.createElement('i', { className: 'big github square icon' })
+	              ),
+	              React.createElement(
+	                'a',
+	                { target: '_blank', href: 'https://www.instagram.com/kateekih/?hl=en' },
+	                React.createElement('i', { className: 'big instagram icon' })
+	              ),
+	              React.createElement(
+	                'a',
+	                { target: '_blank', href: 'https://www.linkedin.com/in/kate-hurd-73284383/' },
+	                React.createElement('i', { className: 'big linkedin square icon' })
+	              )
+	            )
 	          )
 	        )
 	      );
 	    }
 	  }]);
 
-	  return Nav;
+	  return Footer;
 	}(React.Component);
 
-	module.exports = Nav;
+	module.exports = Footer;
 
 /***/ },
 /* 219 */
@@ -25492,7 +25543,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
+	var Footer = __webpack_require__(218);
 
 	var _require = __webpack_require__(180),
 	    Link = _require.Link;
@@ -25544,65 +25595,69 @@
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
 	            'div',
-	            null,
-	            React.createElement(
-	              'h2',
-	              { className: 'ui header' },
-	              'Register'
-	            ),
-	            React.createElement(
-	              'form',
-	              { className: 'ui large form', onSubmit: this.handleSubmit },
-	              React.createElement(
-	                'div',
-	                { className: 'ui raised segment' },
-	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'text', required: true, placeholder: 'username', name: 'name' })
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'email', required: true, placeholder: 'email', name: 'email' })
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'field' },
-	                  React.createElement('input', { type: 'password', required: true, placeholder: 'password', name: 'password' })
-	                ),
-	                React.createElement(
-	                  'button',
-	                  { className: 'ui fluid large submit button' },
-	                  'Register'
-	                )
-	              )
-	            ),
+	            { className: 'ui middle aligned center aligned grid' },
 	            React.createElement(
 	              'div',
-	              { className: 'ui message' },
+	              null,
 	              React.createElement(
-	                'p',
-	                null,
-	                'Already have an account? Login ',
+	                'h2',
+	                { className: 'ui header' },
+	                'Register'
+	              ),
+	              React.createElement(
+	                'form',
+	                { className: 'ui large form', onSubmit: this.handleSubmit },
 	                React.createElement(
-	                  Link,
-	                  { to: '/login' },
-	                  'here'
+	                  'div',
+	                  { className: 'ui raised segment' },
+	                  React.createElement(
+	                    'div',
+	                    { className: 'field' },
+	                    React.createElement('input', { type: 'text', required: true, placeholder: 'username', name: 'name' })
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'field' },
+	                    React.createElement('input', { type: 'email', required: true, placeholder: 'email', name: 'email' })
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'field' },
+	                    React.createElement('input', { type: 'password', required: true, placeholder: 'password', name: 'password' })
+	                  ),
+	                  React.createElement(
+	                    'button',
+	                    { className: 'ui fluid large submit button' },
+	                    'Register'
+	                  )
+	                )
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'ui message' },
+	                React.createElement(
+	                  'p',
+	                  null,
+	                  'Already have an account? Login ',
+	                  React.createElement(
+	                    Link,
+	                    { to: '/landing' },
+	                    'here'
+	                  )
 	                )
 	              )
 	            )
 	          )
-	        )
+	        ),
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -25627,7 +25682,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
+	var Footer = __webpack_require__(218);
 
 	var RegConfirm = function (_React$Component) {
 	  _inherits(RegConfirm, _React$Component);
@@ -25664,38 +25719,42 @@
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
 	            'div',
-	            { className: 'column' },
+	            { className: 'ui middle aligned center aligned grid' },
 	            React.createElement(
-	              'h1',
-	              { className: 'ui header' },
-	              'Welcome to HIKER'
-	            ),
-	            React.createElement(
-	              'p',
-	              null,
-	              'Thanks for registering!'
-	            ),
-	            React.createElement(
-	              'p',
-	              null,
-	              'Check your email for a confirmation link'
-	            ),
-	            React.createElement(
-	              'p',
-	              null,
-	              'Having trouble? Send it again'
+	              'div',
+	              { className: 'column' },
+	              React.createElement(
+	                'h1',
+	                { className: 'ui header' },
+	                'Welcome to HIKER'
+	              ),
+	              React.createElement(
+	                'p',
+	                null,
+	                'Thanks for registering!'
+	              ),
+	              React.createElement(
+	                'p',
+	                null,
+	                'Check your email for a confirmation link'
+	              ),
+	              React.createElement(
+	                'p',
+	                null,
+	                'Having trouble? Send it again'
+	              )
 	            )
 	          )
-	        )
+	        ),
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -25713,6 +25772,8 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	__webpack_require__(1);
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -25720,108 +25781,92 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
-
-	var _require = __webpack_require__(180),
-	    Link = _require.Link;
+	var Search = __webpack_require__(222);
+	var Footer = __webpack_require__(218);
+	// const { Link } = require('react-router-dom')
 
 	var Home = function (_React$Component) {
 	  _inherits(Home, _React$Component);
 
-	  _createClass(Home, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount(request) {
-	      var user = {
-	        email: request.body.email,
-	        password: request.body.password
-	      };
-
-	      fetch({
-	        url: '/auth/login',
-	        type: 'POST',
-	        data: user
-	      }).done(function (user) {
-	        fetch('/api/users/me').done(function (me) {
-	          var _iteratorNormalCompletion = true;
-	          var _didIteratorError = false;
-	          var _iteratorError = undefined;
-
-	          try {
-	            for (var _iterator = me.hikes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	              var hike = _step.value;
-
-	              console.log(hike);
-	            }
-	          } catch (err) {
-	            _didIteratorError = true;
-	            _iteratorError = err;
-	          } finally {
-	            try {
-	              if (!_iteratorNormalCompletion && _iterator.return) {
-	                _iterator.return();
-	              }
-	            } finally {
-	              if (_didIteratorError) {
-	                throw _iteratorError;
-	              }
-	            }
-	          }
-	        });
-	      }).fail(function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }]);
-
-	  function Home() {
+	  function Home(props) {
 	    _classCallCheck(this, Home);
 
-	    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
+	    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
 	    _this.state = { value: '' };
+	    console.log(_this.state);
 	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    _this.conductSearch = _this.conductSearch.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(Home, [{
+	    key: 'conductSearch',
+	    value: function conductSearch(searchTerm) {
+	      fetch('https://trailapi-trailapi.p.mashape.com/?q[activities_activity_type_name_eq]=hiking&q[country_cont]=United+States&q[state_cont]=' + searchTerm, {
+	        method: 'GET',
+	        headers: {
+	          'X-Mashape-Authorization': 'QYyfJ0AJ55mshNE7Z8fXe8CIU4pQp1bT9bMjsnaTW8xTgmib0u'
+	        }
+	      }).then(function (response) {
+	        return response.json();
+	      }).then(function (hikes) {
+	        console.log(hikes);
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
 	    key: 'handleChange',
 	    value: function handleChange(event) {
 	      this.setState({ value: event.target.value });
-	      console.log(this.state);
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(event) {
+	      event.preventDefault();
+	      console.log(this.state.value);
+	      var searchTerm = this.state.value;
+	      this.conductSearch(searchTerm);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
 	            'div',
-	            { className: 'ui small image' },
-	            React.createElement('img', { src: '../images/logo.png' })
+	            { className: 'ui middle aligned center aligned grid' },
+	            React.createElement(
+	              'div',
+	              { className: 'ui small image' },
+	              React.createElement('img', { src: '../images/logo.png' })
+	            )
+	          ),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement(
+	            'div',
+	            { className: 'ui middle aligned center aligned grid' },
+	            React.createElement(
+	              'form',
+	              { className: 'ui input', onSubmit: this.handleSubmit },
+	              React.createElement('input', { id: 'search-box', name: 'searchTerm', value: this.state.value, onChange: this.handleChange, required: true, type: 'text', placeholder: 'enter city or state' })
+	            )
+	          ),
+	          React.createElement(
+	            'div',
+	            null,
+	            React.createElement(Search, null)
 	          )
 	        ),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement(
-	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
-	          React.createElement(
-	            'div',
-	            { className: 'ui input' },
-	            React.createElement('input', { id: 'search-box', value: this.state.value, required: true, type: 'text', placeholder: 'enter city or state' }),
-	            React.createElement(
-	              Link,
-	              { to: '/search' },
-	              React.createElement('icon', { onClick: this.handleChange, className: 'flaticon-search' })
-	            )
-	          )
-	        )
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -25846,8 +25891,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Home = __webpack_require__(221);
-	var Hike = __webpack_require__(223);
+	// const Hike = require('./Hike.jsx')
 
 	var Search = function (_React$Component) {
 	  _inherits(Search, _React$Component);
@@ -25864,12 +25908,16 @@
 	      return React.createElement(
 	        'div',
 	        null,
-	        React.createElement(Home, null),
 	        React.createElement('div', { className: 'ui hidden section divider' }),
 	        React.createElement(
 	          'div',
 	          { className: 'search-results' },
-	          React.createElement(Hike, null)
+	          React.createElement(
+	            'h1',
+	            null,
+	            'The hikes should be displayed in this section ',
+	            this.props.hike
+	          )
 	        )
 	      );
 	    }
@@ -25895,67 +25943,127 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
+	var Hike = __webpack_require__(224);
+	var Footer = __webpack_require__(218);
+
+	var MyHikes = function (_React$Component) {
+	  _inherits(MyHikes, _React$Component);
+
+	  function MyHikes() {
+	    _classCallCheck(this, MyHikes);
+
+	    return _possibleConstructorReturn(this, (MyHikes.__proto__ || Object.getPrototypeOf(MyHikes)).apply(this, arguments));
+	  }
+
+	  _createClass(MyHikes, [{
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        { className: 'Site' },
+	        React.createElement(
+	          'div',
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement(
+	            'div',
+	            { className: 'ui middle aligned center aligned grid' },
+	            React.createElement(
+	              'h1',
+	              { className: 'welcome-header' },
+	              'My Hikes'
+	            )
+	          ),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement(
+	            'div',
+	            { className: 'myhikes' },
+	            React.createElement(Hike, null)
+	          )
+	        ),
+	        React.createElement(Footer, null)
+	      );
+	    }
+	  }]);
+
+	  return MyHikes;
+	}(React.Component);
+
+	module.exports = MyHikes;
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(3);
 
 	var _require = __webpack_require__(180),
 	    Link = _require.Link;
 
-	var myHikes = [];
+	// const myHikes = []
+
+
 	var buttonType = React.createElement('icon', { className: 'flaticon-add' });
 
 	var Hike = function (_React$Component) {
 	  _inherits(Hike, _React$Component);
 
-	  _createClass(Hike, [{
-	    key: 'changeButton',
-	    value: function changeButton() {
-	      for (var i = 0; i < myHikes.length; i++) {
-	        if (myHikes[i].id === 0) {
-	          buttonType = React.createElement('icon', { className: 'flaticon-trash' });
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'addHike',
-	    value: function addHike() {
-	      myHikes.push(hike.name);
-	      console.log(myHikes);
-	      this.changeButton.bind(this);
-	    }
-	  }]);
-
-	  function Hike(props) {
+	  function Hike() {
 	    _classCallCheck(this, Hike);
 
-	    var _this = _possibleConstructorReturn(this, (Hike.__proto__ || Object.getPrototypeOf(Hike)).call(this, props));
-
-	    _this.state = {
-	      hikes: []
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (Hike.__proto__ || Object.getPrototypeOf(Hike)).apply(this, arguments));
 	  }
 
 	  _createClass(Hike, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      var _this2 = this;
+	    key: 'render',
 
+
+	    /** changeButton () {
+	      for (var i = 0; i < myHikes.length; i++) {
+	        if (myHikes[i].id === 0) {
+	          buttonType = <icon className='flaticon-trash' />
+	        }
+	      }
+	    }
+	     addHike () {
+	      myHikes.push(hike.name)
+	      console.log(myHikes)
+	      this.changeButton.bind(this)
+	    }
+	     constructor (props) {
+	      super(props)
+	       this.state = {
+	        hikes: []
+	      }
+	    }
+	     componentWillMount () {
 	      fetch('https://trailapi-trailapi.p.mashape.com/', {
 	        headers: {
 	          'X-Mashape-Authorization': 'QYyfJ0AJ55mshNE7Z8fXe8CIU4pQp1bT9bMjsnaTW8xTgmib0u'
 	        }
-	      }).then(function (response) {
-	        return response.json();
-	      }).then(function (response) {
-	        console.log(response);
-	        _this2.setState({ hikes: response.places });
-	      }).catch(function (err) {
-	        console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'render',
+	      }).then(response => {
+	        return response.json()
+	      }).then(response => {
+	        console.log(response)
+	        this.setState({hikes: response.places})
+	      }).catch(err => {
+	        console.log(err)
+	      })
+	    } **/
+
 	    value: function render() {
-	      var _this3 = this;
+	      var _this2 = this;
 
 	      var places = this.state.hikes.map(function (hike) {
 	        return React.createElement(
@@ -25971,7 +26079,7 @@
 	            { className: 'content' },
 	            React.createElement(
 	              'i',
-	              { onClick: _this3.addHike.bind(_this3), className: 'right floated icon' },
+	              { onClick: _this2.addHike.bind(_this2), className: 'right floated icon' },
 	              buttonType
 	            ),
 	            React.createElement(
@@ -26035,66 +26143,6 @@
 	module.exports = Hike;
 
 /***/ },
-/* 224 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
-	var Hike = __webpack_require__(223);
-
-	var MyHikes = function (_React$Component) {
-	  _inherits(MyHikes, _React$Component);
-
-	  function MyHikes() {
-	    _classCallCheck(this, MyHikes);
-
-	    return _possibleConstructorReturn(this, (MyHikes.__proto__ || Object.getPrototypeOf(MyHikes)).apply(this, arguments));
-	  }
-
-	  _createClass(MyHikes, [{
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement(
-	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
-	          React.createElement(
-	            'h1',
-	            { className: 'welcome-header' },
-	            'My Hikes'
-	          )
-	        ),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement(
-	          'div',
-	          { className: 'myhikes' },
-	          React.createElement(Hike, null)
-	        )
-	      );
-	    }
-	  }]);
-
-	  return MyHikes;
-	}(React.Component);
-
-	module.exports = MyHikes;
-
-/***/ },
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26109,7 +26157,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
+	var Footer = __webpack_require__(218);
 
 	var _require = __webpack_require__(180),
 	    Link = _require.Link;
@@ -26130,167 +26178,171 @@
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui container' },
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
-	            'h1',
-	            { className: 'ui header' },
-	            'Name of Hike'
-	          ),
-	          reviewsData.farmingtonriver.map(function (review) {
-	            return React.createElement(
-	              'form',
-	              { className: 'ui padded form', key: review.id },
-	              React.createElement(
-	                'div',
-	                { className: 'fields' },
+	            'div',
+	            { className: 'ui container' },
+	            React.createElement(
+	              'h1',
+	              { className: 'ui header' },
+	              'Name of Hike'
+	            ),
+	            reviewsData.farmingtonriver.map(function (review) {
+	              return React.createElement(
+	                'form',
+	                { className: 'ui padded form', key: review.id },
 	                React.createElement(
 	                  'div',
-	                  { className: 'twelve wide field' },
+	                  { className: 'fields' },
 	                  React.createElement(
 	                    'div',
-	                    { className: 'ui fluid image' },
-	                    React.createElement('img', { src: 'public/images/lookingmtn.jpg' })
-	                  )
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'four wide field' },
+	                    { className: 'twelve wide field' },
+	                    React.createElement(
+	                      'div',
+	                      { className: 'ui fluid image' },
+	                      React.createElement('img', { src: 'public/images/lookingmtn.jpg' })
+	                    )
+	                  ),
 	                  React.createElement(
 	                    'div',
-	                    { className: 'ui segments' },
+	                    { className: 'four wide field' },
 	                    React.createElement(
 	                      'div',
-	                      { className: 'ui segment' },
+	                      { className: 'ui segments' },
 	                      React.createElement(
-	                        'h3',
-	                        null,
-	                        'DATE HIKED'
+	                        'div',
+	                        { className: 'ui segment' },
+	                        React.createElement(
+	                          'h3',
+	                          null,
+	                          'DATE HIKED'
+	                        ),
+	                        React.createElement(
+	                          'h4',
+	                          null,
+	                          review.date
+	                        )
 	                      ),
 	                      React.createElement(
-	                        'h4',
-	                        null,
-	                        review.date
-	                      )
-	                    ),
-	                    React.createElement(
-	                      'div',
-	                      { className: 'ui segment' },
-	                      React.createElement(
-	                        'h3',
-	                        null,
-	                        'USERNAME'
+	                        'div',
+	                        { className: 'ui segment' },
+	                        React.createElement(
+	                          'h3',
+	                          null,
+	                          'USERNAME'
+	                        ),
+	                        React.createElement(
+	                          'h4',
+	                          null,
+	                          review.user
+	                        )
 	                      ),
 	                      React.createElement(
-	                        'h4',
-	                        null,
-	                        review.user
-	                      )
-	                    ),
-	                    React.createElement(
-	                      'div',
-	                      { className: 'ui segment' },
-	                      React.createElement(
-	                        'h3',
-	                        null,
-	                        'HIKING TIME'
+	                        'div',
+	                        { className: 'ui segment' },
+	                        React.createElement(
+	                          'h3',
+	                          null,
+	                          'HIKING TIME'
+	                        ),
+	                        React.createElement(
+	                          'h4',
+	                          null,
+	                          review.time
+	                        )
 	                      ),
 	                      React.createElement(
-	                        'h4',
-	                        null,
-	                        review.time
-	                      )
-	                    ),
-	                    React.createElement(
-	                      'div',
-	                      { className: 'ui segment' },
-	                      React.createElement(
-	                        'h3',
-	                        null,
-	                        'TRAILHEAD'
-	                      ),
-	                      React.createElement(
-	                        'h4',
-	                        null,
-	                        review.trailhead
+	                        'div',
+	                        { className: 'ui segment' },
+	                        React.createElement(
+	                          'h3',
+	                          null,
+	                          'TRAILHEAD'
+	                        ),
+	                        React.createElement(
+	                          'h4',
+	                          null,
+	                          review.trailhead
+	                        )
 	                      )
 	                    )
 	                  )
-	                )
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'ui styled fluid accordion' },
-	                React.createElement(
-	                  'div',
-	                  { className: 'title' },
-	                  React.createElement('i', { className: 'dropdown icon' }),
-	                  'Trail Conditions'
 	                ),
 	                React.createElement(
 	                  'div',
-	                  { className: 'content' },
+	                  { className: 'ui styled fluid accordion' },
 	                  React.createElement(
-	                    'p',
-	                    null,
-	                    review.conditions
+	                    'div',
+	                    { className: 'title' },
+	                    React.createElement('i', { className: 'dropdown icon' }),
+	                    'Trail Conditions'
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'content' },
+	                    React.createElement(
+	                      'p',
+	                      null,
+	                      review.conditions
+	                    )
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'title' },
+	                    React.createElement('i', { className: 'dropdown icon' }),
+	                    'Weather'
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'content' },
+	                    React.createElement(
+	                      'p',
+	                      null,
+	                      review.weather
+	                    )
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'title' },
+	                    React.createElement('i', { className: 'dropdown icon' }),
+	                    'Gear Used'
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'content' },
+	                    React.createElement(
+	                      'p',
+	                      null,
+	                      review.gear
+	                    )
 	                  )
 	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'title' },
-	                  React.createElement('i', { className: 'dropdown icon' }),
-	                  'Weather'
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'content' },
-	                  React.createElement(
-	                    'p',
-	                    null,
-	                    review.weather
-	                  )
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'title' },
-	                  React.createElement('i', { className: 'dropdown icon' }),
-	                  'Gear Used'
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'content' },
-	                  React.createElement(
-	                    'p',
-	                    null,
-	                    review.gear
-	                  )
-	                )
-	              ),
-	              React.createElement('div', { className: 'ui horizontal divider' })
-	            );
-	          }),
-	          React.createElement(
-	            'h1',
-	            null,
-	            'There are currently no reviews for this hike'
-	          ),
-	          React.createElement(
-	            Link,
-	            { to: '/review_form' },
+	                React.createElement('div', { className: 'ui horizontal divider' })
+	              );
+	            }),
 	            React.createElement(
-	              'button',
-	              { className: 'ui fluid large button' },
-	              React.createElement('icon', { className: 'flaticon-add' }),
-	              ' Add a review'
+	              'h1',
+	              null,
+	              'There are currently no reviews for this hike'
+	            ),
+	            React.createElement(
+	              Link,
+	              { to: '/review_form' },
+	              React.createElement(
+	                'button',
+	                { className: 'ui fluid large button' },
+	                React.createElement('icon', { className: 'flaticon-add' }),
+	                ' Add a review'
+	              )
 	            )
 	          )
-	        )
+	        ),
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -26379,7 +26431,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
+	var Footer = __webpack_require__(218);
 
 	var ReviewForm = function (_React$Component) {
 	  _inherits(ReviewForm, _React$Component);
@@ -26395,138 +26447,142 @@
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui container' },
-	          React.createElement(
-	            'div',
-	            { className: 'ui middle aligned center aligned grid' },
-	            React.createElement(
-	              'div',
-	              { className: 'ui small image' },
-	              React.createElement('img', { src: 'public/images/logo.png' })
-	            )
-	          ),
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
-	            'h1',
-	            { className: 'ui header' },
-	            'Review NAME OF HIKE'
-	          ),
-	          React.createElement(
-	            'form',
-	            { className: 'ui form' },
+	            'div',
+	            { className: 'ui container' },
 	            React.createElement(
 	              'div',
-	              { className: 'fields' },
+	              { className: 'ui middle aligned center aligned grid' },
 	              React.createElement(
 	                'div',
-	                { className: 'eight wide field' },
-	                React.createElement(
-	                  'label',
-	                  null,
-	                  'Date Hiked'
-	                ),
-	                React.createElement('input', { type: 'date', min: '1950-01-01', required: true, placeholder: 'date hiked' })
-	              ),
+	                { className: 'ui small image' },
+	                React.createElement('img', { src: 'public/images/logo.png' })
+	              )
+	            ),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement(
+	              'h1',
+	              { className: 'ui header' },
+	              'Review NAME OF HIKE'
+	            ),
+	            React.createElement(
+	              'form',
+	              { className: 'ui form' },
 	              React.createElement(
 	                'div',
-	                { className: 'eight wide field' },
+	                { className: 'fields' },
 	                React.createElement(
-	                  'label',
-	                  null,
-	                  'Hiking Time'
+	                  'div',
+	                  { className: 'eight wide field' },
+	                  React.createElement(
+	                    'label',
+	                    null,
+	                    'Date Hiked'
+	                  ),
+	                  React.createElement('input', { type: 'date', min: '1950-01-01', required: true, placeholder: 'date hiked' })
 	                ),
 	                React.createElement(
 	                  'div',
-	                  { className: 'two fields' },
+	                  { className: 'eight wide field' },
 	                  React.createElement(
-	                    'div',
-	                    { className: 'field' },
-	                    React.createElement('input', { type: 'number', min: '0' }),
-	                    'hr'
+	                    'label',
+	                    null,
+	                    'Hiking Time'
 	                  ),
 	                  React.createElement(
 	                    'div',
-	                    { className: 'field' },
-	                    React.createElement('input', { type: 'number', min: '0', max: '59' }),
-	                    'min'
+	                    { className: 'two fields' },
+	                    React.createElement(
+	                      'div',
+	                      { className: 'field' },
+	                      React.createElement('input', { type: 'number', min: '0' }),
+	                      'hr'
+	                    ),
+	                    React.createElement(
+	                      'div',
+	                      { className: 'field' },
+	                      React.createElement('input', { type: 'number', min: '0', max: '59' }),
+	                      'min'
+	                    )
 	                  )
 	                )
-	              )
-	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'field' },
-	              React.createElement(
-	                'div',
-	                { className: 'field' },
-	                React.createElement(
-	                  'label',
-	                  null,
-	                  'Trailhead'
-	                ),
-	                React.createElement('input', { type: 'text', placeholder: 'trailhead' })
 	              ),
 	              React.createElement(
 	                'div',
 	                { className: 'field' },
 	                React.createElement(
-	                  'label',
-	                  null,
-	                  'Trail Conditions'
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement(
+	                    'label',
+	                    null,
+	                    'Trailhead'
+	                  ),
+	                  React.createElement('input', { type: 'text', placeholder: 'trailhead' })
 	                ),
-	                React.createElement('textarea', { placeholder: 'how was the terrain itself during your hike? e.g. branches down, unclear paths, rock scrambling' })
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'field' },
 	                React.createElement(
-	                  'label',
-	                  null,
-	                  'Weather'
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement(
+	                    'label',
+	                    null,
+	                    'Trail Conditions'
+	                  ),
+	                  React.createElement('textarea', { placeholder: 'how was the terrain itself during your hike? e.g. branches down, unclear paths, rock scrambling' })
 	                ),
-	                React.createElement('textarea', { placeholder: 'what was the weather like? e.g. temperature, wind, exposure, wet or dry' })
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'field' },
 	                React.createElement(
-	                  'label',
-	                  null,
-	                  'Gear Used'
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement(
+	                    'label',
+	                    null,
+	                    'Weather'
+	                  ),
+	                  React.createElement('textarea', { placeholder: 'what was the weather like? e.g. temperature, wind, exposure, wet or dry' })
 	                ),
-	                React.createElement('textarea', { placeholder: 'any special gear used or anything you would recommend this time of year?' })
-	              )
-	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'fields' },
-	              React.createElement(
-	                'div',
-	                { className: 'eight wide field' },
 	                React.createElement(
-	                  'button',
-	                  { className: 'ui fluid large button' },
-	                  'Upload Photos'
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement(
+	                    'label',
+	                    null,
+	                    'Gear Used'
+	                  ),
+	                  React.createElement('textarea', { placeholder: 'any special gear used or anything you would recommend this time of year?' })
 	                )
 	              ),
 	              React.createElement(
 	                'div',
-	                { className: 'eight wide field' },
+	                { className: 'fields' },
 	                React.createElement(
-	                  'button',
-	                  { className: 'ui fluid large submit button' },
-	                  'Submit Review'
+	                  'div',
+	                  { className: 'eight wide field' },
+	                  React.createElement(
+	                    'button',
+	                    { className: 'ui fluid large button' },
+	                    'Upload Photos'
+	                  )
+	                ),
+	                React.createElement(
+	                  'div',
+	                  { className: 'eight wide field' },
+	                  React.createElement(
+	                    'button',
+	                    { className: 'ui fluid large submit button' },
+	                    'Submit Review'
+	                  )
 	                )
 	              )
 	            )
 	          )
-	        )
+	        ),
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -26551,7 +26607,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
+	var Footer = __webpack_require__(218);
 
 	var About = function (_React$Component) {
 	  _inherits(About, _React$Component);
@@ -26567,173 +26623,242 @@
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui middle aligned center aligned grid' },
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
 	            'div',
-	            { className: 'ui small image' },
-	            React.createElement('img', { src: '../images/logo.png' })
+	            { className: 'ui middle aligned center aligned grid' },
+	            React.createElement(
+	              'div',
+	              { className: 'ui small image' },
+	              React.createElement('img', { src: '../images/logo.png' })
+	            )
+	          ),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement(
+	            'div',
+	            { className: 'ui container' },
+	            React.createElement('img', { className: 'ui image', src: '../images/hiker_over_cliff.jpg' }),
+	            React.createElement(
+	              'div',
+	              { className: 'ui four column stackable grid' },
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_1.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_10.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_11.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_12.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_13.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_3.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_4.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_5.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_17.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_18.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_19.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'column' },
+	                React.createElement('img', { className: 'ui image', src: '../images/hiking_20.jpg' })
+	              )
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'ui grid' },
+	              React.createElement(
+	                'div',
+	                { className: 'eight wide column' },
+	                React.createElement('img', { className: 'ui fluid image', src: '../images/starrynight.jpg' })
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'eight wide column' },
+	                React.createElement(
+	                  'div',
+	                  { className: 'content' },
+	                  React.createElement(
+	                    'div',
+	                    { className: 'header' },
+	                    'Header'
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'meta' },
+	                    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. '
+	                  )
+	                )
+	              )
+	            ),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement('div', { className: 'ui divider' }),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement(
+	              'div',
+	              { className: 'ui four column stackable grid' },
+	              React.createElement(
+	                'div',
+	                { className: 'center aligned column' },
+	                React.createElement(
+	                  'i',
+	                  { className: 'huge circular icon' },
+	                  React.createElement('icon', { className: 'huge flaticon-distance' }),
+	                  React.createElement('icon', { className: 'big thin circle icon' })
+	                ),
+	                React.createElement(
+	                  'h1',
+	                  null,
+	                  'FIND'
+	                ),
+	                React.createElement(
+	                  'h3',
+	                  null,
+	                  'your next trail'
+	                )
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'center aligned column' },
+	                React.createElement(
+	                  'i',
+	                  { className: 'huge circular icon' },
+	                  React.createElement('icon', { className: 'huge flaticon-difficulty' }),
+	                  React.createElement('icon', { className: 'big thin circle icon' })
+	                ),
+	                React.createElement(
+	                  'h1',
+	                  null,
+	                  'TRACK'
+	                ),
+	                React.createElement(
+	                  'h3',
+	                  null,
+	                  'your progress'
+	                )
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'center aligned column' },
+	                React.createElement(
+	                  'i',
+	                  { className: 'huge circular icon' },
+	                  React.createElement('icon', { className: 'huge flaticon-photo-camera' }),
+	                  React.createElement('icon', { className: 'big thin circle icon' })
+	                ),
+	                React.createElement(
+	                  'h1',
+	                  null,
+	                  'CAPTURE'
+	                ),
+	                React.createElement(
+	                  'h3',
+	                  null,
+	                  'your experience'
+	                )
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'center aligned column' },
+	                React.createElement(
+	                  'i',
+	                  { className: 'huge circular icon' },
+	                  React.createElement('icon', { className: 'huge flaticon-radius' }),
+	                  React.createElement('icon', { className: 'big thin circle icon' })
+	                ),
+	                React.createElement(
+	                  'h1',
+	                  null,
+	                  'RECORD'
+	                ),
+	                React.createElement(
+	                  'h3',
+	                  null,
+	                  'your thoughts'
+	                )
+	              )
+	            ),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement('div', { className: 'ui divider' }),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement(
+	              'div',
+	              { className: 'ui grid' },
+	              React.createElement(
+	                'div',
+	                { className: 'eight wide column' },
+	                React.createElement(
+	                  'div',
+	                  { className: 'content' },
+	                  React.createElement(
+	                    'div',
+	                    { className: 'header' },
+	                    'Header'
+	                  ),
+	                  React.createElement(
+	                    'div',
+	                    { className: 'meta' },
+	                    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. '
+	                  )
+	                )
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'eight wide column' },
+	                React.createElement('img', { className: 'ui fluid image', src: '../images/lookingmtn.jpg' })
+	              )
+	            )
 	          )
 	        ),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement(
-	          'div',
-	          { className: 'ui container' },
-	          React.createElement(
-	            'div',
-	            { className: 'ui items' },
-	            React.createElement(
-	              'div',
-	              { className: 'item' },
-	              React.createElement(
-	                'div',
-	                { className: 'image' },
-	                React.createElement('img', { src: '../images/starrynight.jpg' })
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'content' },
-	                React.createElement(
-	                  'div',
-	                  { className: 'header' },
-	                  'Header'
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'meta' },
-	                  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. '
-	                )
-	              )
-	            )
-	          ),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement('div', { className: 'ui divider' }),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement(
-	            'div',
-	            { className: 'ui four column grid' },
-	            React.createElement(
-	              'div',
-	              { className: 'center aligned column' },
-	              React.createElement(
-	                'i',
-	                { className: 'huge circular icon' },
-	                React.createElement('icon', { className: 'huge flaticon-distance' }),
-	                React.createElement('icon', { className: 'big thin circle icon' })
-	              ),
-	              React.createElement(
-	                'h1',
-	                null,
-	                'FIND'
-	              ),
-	              React.createElement(
-	                'h3',
-	                null,
-	                'your next trail'
-	              )
-	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'center aligned column' },
-	              React.createElement(
-	                'i',
-	                { className: 'huge circular icon' },
-	                React.createElement('icon', { className: 'huge flaticon-difficulty' }),
-	                React.createElement('icon', { className: 'big thin circle icon' })
-	              ),
-	              React.createElement(
-	                'h1',
-	                null,
-	                'TRACK'
-	              ),
-	              React.createElement(
-	                'h3',
-	                null,
-	                'your progress'
-	              )
-	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'center aligned column' },
-	              React.createElement(
-	                'i',
-	                { className: 'huge circular icon' },
-	                React.createElement('icon', { className: 'huge flaticon-photo-camera' }),
-	                React.createElement('icon', { className: 'big thin circle icon' })
-	              ),
-	              React.createElement(
-	                'h1',
-	                null,
-	                'CAPTURE'
-	              ),
-	              React.createElement(
-	                'h3',
-	                null,
-	                'your experience'
-	              )
-	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'center aligned column' },
-	              React.createElement(
-	                'i',
-	                { className: 'huge circular icon' },
-	                React.createElement('icon', { className: 'huge flaticon-radius' }),
-	                React.createElement('icon', { className: 'big thin circle icon' })
-	              ),
-	              React.createElement(
-	                'h1',
-	                null,
-	                'RECORD'
-	              ),
-	              React.createElement(
-	                'h3',
-	                null,
-	                'your thoughts'
-	              )
-	            )
-	          ),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement('div', { className: 'ui divider' }),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement('div', { className: 'ui hidden section divider' }),
-	          React.createElement(
-	            'div',
-	            { className: 'ui items' },
-	            React.createElement(
-	              'div',
-	              { className: 'item' },
-	              React.createElement(
-	                'div',
-	                { className: 'content' },
-	                React.createElement(
-	                  'div',
-	                  { className: 'header' },
-	                  'Header'
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { className: 'meta' },
-	                  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. '
-	                )
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'image' },
-	                React.createElement('img', { src: '../images/lookingmtn.jpg' })
-	              )
-	            )
-	          )
-	        )
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -26758,7 +26883,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(3);
-	var Nav = __webpack_require__(218);
+	var Footer = __webpack_require__(218);
 
 	var Contact = function (_React$Component) {
 	  _inherits(Contact, _React$Component);
@@ -26774,67 +26899,73 @@
 	    value: function render() {
 	      return React.createElement(
 	        'div',
-	        null,
-	        React.createElement(Nav, null),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
-	        React.createElement('div', { className: 'ui hidden section divider' }),
+	        { className: 'Site' },
 	        React.createElement(
 	          'div',
-	          { className: 'ui container' },
-	          React.createElement(
-	            'div',
-	            { className: 'ui middle aligned center aligned grid' },
-	            React.createElement(
-	              'div',
-	              { className: 'ui small image' },
-	              React.createElement('img', { src: '../images/logo.png' })
-	            )
-	          ),
+	          { className: 'Site-content' },
+	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement('div', { className: 'ui hidden section divider' }),
 	          React.createElement(
 	            'div',
-	            { className: 'ui raised very padded text container segment' },
+	            { className: 'ui container' },
 	            React.createElement(
-	              'form',
-	              { className: 'ui large form' },
-	              React.createElement(
-	                'h2',
-	                { className: 'ui header' },
-	                'Contact'
-	              ),
+	              'div',
+	              { className: 'ui middle aligned center aligned grid' },
 	              React.createElement(
 	                'div',
-	                { className: 'field' },
-	                React.createElement('input', { type: 'text', required: true, placeholder: 'first name' })
-	              ),
+	                { className: 'ui small image' },
+	                React.createElement('img', { src: '../images/logo.png' })
+	              )
+	            ),
+	            React.createElement('div', { className: 'ui hidden section divider' }),
+	            React.createElement(
+	              'div',
+	              { className: 'ui raised very padded text container segment' },
 	              React.createElement(
-	                'div',
-	                { className: 'field' },
-	                React.createElement('input', { type: 'text', placeholder: 'last name' })
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'field' },
-	                React.createElement('input', { type: 'text', placeholder: 'username' })
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'field' },
-	                React.createElement('input', { type: 'email', required: true, placeholder: 'email' })
-	              ),
-	              React.createElement(
-	                'div',
-	                { className: 'field' },
-	                React.createElement('textarea', { required: true, placeholder: 'message' })
-	              ),
-	              React.createElement(
-	                'button',
-	                { className: 'ui fluid large submit button', type: 'submit' },
-	                'send'
+	                'form',
+	                { className: 'ui large form', action: 'https://formspree.io/kate.hurd64@gmail.com', method: 'post', encType: 'text/plain' },
+	                React.createElement(
+	                  'h2',
+	                  { className: 'ui header' },
+	                  'Contact'
+	                ),
+	                React.createElement(
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement('input', { type: 'text', name: 'firstname', required: true, placeholder: 'first name' })
+	                ),
+	                React.createElement(
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement('input', { type: 'text', name: 'lastname', placeholder: 'last name' })
+	                ),
+	                React.createElement(
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement('input', { type: 'text', name: 'username', placeholder: 'username' })
+	                ),
+	                React.createElement(
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement('input', { type: 'email', name: '_replyto', required: true, placeholder: 'email' })
+	                ),
+	                React.createElement(
+	                  'div',
+	                  { className: 'field' },
+	                  React.createElement('textarea', { name: 'message', required: true, placeholder: 'message' })
+	                ),
+	                React.createElement(
+	                  'button',
+	                  { className: 'ui fluid large submit button', type: 'submit' },
+	                  'send'
+	                )
 	              )
 	            )
-	          )
-	        )
+	          ),
+	          React.createElement('div', { className: 'ui hidden section divider' }),
+	          React.createElement('div', { className: 'ui hidden section divider' })
+	        ),
+	        React.createElement(Footer, null)
 	      );
 	    }
 	  }]);
@@ -26843,6 +26974,73 @@
 	}(React.Component);
 
 	module.exports = Contact;
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(3);
+
+	var _require = __webpack_require__(180),
+	    Link = _require.Link;
+
+	var Nav = function (_React$Component) {
+	  _inherits(Nav, _React$Component);
+
+	  function Nav() {
+	    _classCallCheck(this, Nav);
+
+	    return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
+	  }
+
+	  _createClass(Nav, [{
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        { className: 'ui fixed inverted huge right menu' },
+	        React.createElement(
+	          'div',
+	          { className: 'ui container' },
+	          React.createElement(
+	            Link,
+	            { to: '/home', className: 'item' },
+	            'Home'
+	          ),
+	          React.createElement(
+	            Link,
+	            { to: '/user/myhikes', className: 'item' },
+	            'My Hikes'
+	          ),
+	          React.createElement(
+	            Link,
+	            { to: '/about', className: 'item' },
+	            'About'
+	          ),
+	          React.createElement(
+	            Link,
+	            { to: '/contact', className: 'item' },
+	            'Contact'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Nav;
+	}(React.Component);
+
+	module.exports = Nav;
 
 /***/ }
 /******/ ]);

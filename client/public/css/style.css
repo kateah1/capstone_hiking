@@ -1,12 +1,23 @@
-body {
-	background-image: url('../images/background.jpg');
-	background-size: cover;
-	background-repeat: no-repeat; 
-}
-
 .avatar {
 	margin-right: 0px;
 	margin-top: .5em;
 	width: 5em;
 	height: 5em;
+}
+
+.Site {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background-image: url('../images/background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.Site-content {
+	flex: 1;
+}
+
+a {
+	color: #fff !important;
 }

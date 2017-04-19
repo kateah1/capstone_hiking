@@ -1,5 +1,5 @@
 const React = require('react')
-const Nav = require('./Nav.jsx')
+const Footer = require('./Footer.jsx')
 const { Link } = require('react-router-dom')
 import 'whatwg-fetch'
 
@@ -43,32 +43,34 @@ class Landing extends React.Component {
 
   render () {
     return (
-      <div>
-        <Nav />
-        <div className='ui hidden section divider' />
-        <div className='ui hidden section divider' />
-        <div className='ui middle aligned center aligned grid'>
-          <div>
-            <h1 className='ui huge header'>Welcome to HIKER</h1>
-            <form className='ui large form' onSubmit={this.handleSubmit}>
-              <div className='ui raised segment'>
-                <div className='field'>
-                  <input type='text' placeholder='email' name='email' />
+      <div className='Site'>
+        <div className='Site-content'>
+          <div className='ui hidden section divider' />
+          <div className='ui hidden section divider' />
+          <div className='ui middle aligned center aligned grid'>
+            <div>
+              <h1 className='ui huge header'>Welcome to HIKER</h1>
+              <form className='ui large form' onSubmit={this.handleSubmit}>
+                <div className='ui raised segment'>
+                  <div className='field'>
+                    <input type='text' placeholder='email' name='email' />
+                  </div>
+                  <div className='field'>
+                    <input type='password' placeholder='password' name='password' />
+                  </div>
+                  <button className='ui fluid large submit button'>Login</button>
                 </div>
-                <div className='field'>
-                  <input type='password' placeholder='password' name='password' />
-                </div>
-                <button className='ui fluid large submit button'>Login</button>
+              </form>
+              <div className='ui message'>
+                <p>Forgot your password? Reset here</p>
+                <p>Don't have an account? Register
+                  <Link to='/register'>here</Link>
+                </p>
               </div>
-            </form>
-            <div className='ui message'>
-              <p>Forgot your password? Reset here</p>
-              <p>Don't have an account? Register
-                <Link to='/register'>here</Link>
-              </p>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     )
   }

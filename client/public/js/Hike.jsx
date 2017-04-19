@@ -1,12 +1,12 @@
 const React = require('react')
 const {Link} = require('react-router-dom')
 
-const myHikes = []
+// const myHikes = []
 var buttonType = <icon className='flaticon-add' />
 
 class Hike extends React.Component {
 
-  changeButton () {
+  /** changeButton () {
     for (var i = 0; i < myHikes.length; i++) {
       if (myHikes[i].id === 0) {
         buttonType = <icon className='flaticon-trash' />
@@ -41,7 +41,7 @@ class Hike extends React.Component {
     }).catch(err => {
       console.log(err)
     })
-  }
+  } **/
 
   render () {
     const places = this.state.hikes.map((hike) =>

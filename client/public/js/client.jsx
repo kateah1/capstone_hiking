@@ -11,13 +11,15 @@ const Reviews = require('./Reviews.jsx')
 const ReviewForm = require('./ReviewForm.jsx')
 const About = require('./About.jsx')
 const Contact = require('./Contact.jsx')
+const Nav = require('./Nav.jsx')
 
 class App extends React.Component {
   render () {
     return (
       <BrowserRouter>
         <div>
-          <Route path='/' component={Landing} />
+          <Route path='/' component={Nav} />
+          <Route path='/landing' component={Landing} />
           <Route path='/register' component={Register} />
           <Route path='/register_confirmation' component={RegConfirm} />
           <Route path='/home' component={Home} />

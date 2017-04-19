@@ -1,5 +1,5 @@
 const React = require('react')
-const Nav = require('./Nav.jsx')
+const Footer = require('./Footer.jsx')
 
 class RegConfirm extends React.Component {
 
@@ -25,18 +25,20 @@ class RegConfirm extends React.Component {
 
   render () {
     return (
-      <div>
-        <Nav />
-        <div className='ui hidden section divider' />
-        <div className='ui hidden section divider' />
-        <div className='ui middle aligned center aligned grid'>
-          <div className='column'>
-            <h1 className='ui header'>Welcome to HIKER</h1>
-            <p>Thanks for registering!</p>
-            <p>Check your email for a confirmation link</p>
-            <p>Having trouble? Send it again</p>
+      <div className='Site'>
+        <div className='Site-content'>
+          <div className='ui hidden section divider' />
+          <div className='ui hidden section divider' />
+          <div className='ui middle aligned center aligned grid'>
+            <div className='column'>
+              <h1 className='ui header'>Welcome to HIKER</h1>
+              <p>Thanks for registering!</p>
+              <p>Check your email for a confirmation link</p>
+              <p>Having trouble? Send it again</p>
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
     )
   }
